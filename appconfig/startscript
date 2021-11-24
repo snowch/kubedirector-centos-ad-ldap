@@ -15,4 +15,4 @@ SELF=$(readlink -nf $0)
 export CONFIG_BASE_DIR=$(dirname ${SELF})
 export SITE_PACKAGES=$(python3 -c "import site; print(site.getsitepackages()[0])") # get the site-packages directory. 
 
-python ${CONFIG_BASE_DIR}/auth.py
+python2 ${CONFIG_BASE_DIR}/auth.py
