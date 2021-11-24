@@ -12,6 +12,6 @@ import urllib
 import ConfigParser
 import base64, json
 
-from configcli import ConfigCli
+#from configcli import ConfigCli
 
 print("test from auth.py")
