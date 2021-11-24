@@ -21,3 +21,13 @@ kubectl -n non-mlops apply -f https://raw.githubusercontent.com/snowch/kubedirec
 ```
 
 - In the UI provision a centos 7 cluster with `hpecp-ext-auth-secret`
+
+```
+...
+spec: 
+  ...
+  connections: 
+    secrets: [
+      hpecp-ext-auth-secret
+    ]
+```
