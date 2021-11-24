@@ -20,7 +20,9 @@ jobs:
         with:
           token: ${{ github.token }}
           tag: ${{ github.ref }}
-          assets: '*'
+          assets: | 
+            *.tar.gz
+            *.zip
 
       - name: Create Release
         id: create_release
