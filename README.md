@@ -1,5 +1,9 @@
 # kubedirector-centos-ad-ldap
 
+Note that this application is currently hard-coded to the controller IP address for my environment.  This will be rectified within a few days.
+
+https://github.com/snowch/kubedirector-centos-ad-ldap/blob/main/appconfig/startscript#L19-L20
+
 Setup notes:
 
 - SSH to controller then
