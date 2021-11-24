@@ -15,14 +15,12 @@ jobs:
       - run: chmod +x appconfig/startscript
       - run: tar cvzf appconfig.tgz appconfig/
 
-      - name: Delete Release
-        id: delete_release
-        uses: dev-drprasad/delete-tag-and-release@v0.2.0
+      - name: Delete old release assets
+        uses: mknejp/delete-release-assets@v1
         with:
-          delete_release: true
-          tag_name: main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ github.token }}
+          tag: main
+          assets: '*.*'
 
       - name: Create Release
         id: create_release
