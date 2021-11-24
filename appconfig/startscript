@@ -16,6 +16,7 @@ export CONFIG_BASE_DIR=$(dirname ${SELF})
 export SITE_PACKAGES=$(python3 -c "import site; print(site.getsitepackages()[0])") # get the site-packages directory. 
 
 # TODO remove hardcoding
-sudo bash -c "curl https://10.1.0.32/thirdparty/auth.py > ${CONFIG_BASE_DIR}/auth.py"
+sudo bash -c "curl http://10.1.0.32/thirdparty/auth.py > ${CONFIG_BASE_DIR}/auth.py"
+sudo bash -c "curl http://10.1.0.32/thirdparty/auth.props > ${CONFIG_BASE_DIR}/auth.props"
 
 python2 ${CONFIG_BASE_DIR}/auth.py
