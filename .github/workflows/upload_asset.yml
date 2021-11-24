@@ -15,10 +15,12 @@ jobs:
       - run: chmod +x appconfig/startscript
       - run: tar cvzf appconfig.tgz appconfig/
 
-#       - uses: actions/upload-artifact@v2
-#         with:
-#           name: appconfig.tgz
-#           path: appconfig.tgz
+      - uses: dev-drprasad/delete-tag-and-release@v0.2.0
+        with:
+          delete_release: true # default: false
+          tag_name: main # tag name to delete
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Release
         id: create_release
