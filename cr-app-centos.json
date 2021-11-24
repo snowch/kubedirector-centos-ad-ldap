@@ -43,7 +43,7 @@
         ],
         "defaultImageRepoTag": "bluedata/centos8:5.1.1",
         "defaultConfigPackage": {
-            "packageURL": "https://github.com/snowch/kubedirector-centos-ad-ldap/releases/download/0.1/appconfig.tgz"
+            "packageURL": "https://github.com/snowch/kubedirector-centos-ad-ldap/releases/download/refs%2Fheads%2Fmain/appconfig.tgz"
         },
         "roles": [
             {
