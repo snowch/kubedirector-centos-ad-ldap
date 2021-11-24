@@ -8,7 +8,7 @@ import os.path
 import errno
 import filecmp
 import platform
-import urllib.parse
+import urllib
 import ConfigParser
 import base64, json
 
