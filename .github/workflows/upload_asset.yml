@@ -15,7 +15,9 @@ jobs:
       - run: chmod +x appconfig/startscript
       - run: tar cvzf appconfig.tgz appconfig/
 
-      - uses: dev-drprasad/delete-tag-and-release@v0.2.0
+      - name: Delete Release
+        id: delete_release
+        uses: dev-drprasad/delete-tag-and-release@v0.2.0
         with:
           delete_release: true # default: false
           tag_name: main # tag name to delete
