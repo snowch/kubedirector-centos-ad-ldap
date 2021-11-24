@@ -26,7 +26,7 @@
             "name": "CentOS 8.0 with AD/LDAP",
             "description": "CentOS 8.0 with no preinstalled apps"
         },
-        "distroID": "bluedata/centos8x",
+        "distroID": "bluedata/centos8x-ad-ldap",
         "version": "1.0",
         "configSchemaVersion": 8,
         "services": [
