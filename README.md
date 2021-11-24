@@ -1,6 +1,6 @@
 # kubedirector-centos-ad-ldap
 
-Setup:
+Setup notes:
 
 - SSH to controller then
 
