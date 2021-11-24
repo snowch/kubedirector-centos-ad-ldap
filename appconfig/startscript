@@ -9,6 +9,7 @@ else
   exit 10
 fi
 
+sudo yum install python2
 
 SELF=$(readlink -nf $0)
 export CONFIG_BASE_DIR=$(dirname ${SELF})
