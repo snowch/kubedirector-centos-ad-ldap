@@ -1,4 +1,4 @@
-#!/bin/env python
+#!/bin/env python2
 
 # Imports of standard Python packages.
 import sys
