@@ -2,11 +2,10 @@
     "apiVersion": "kubedirector.hpe.com/v1beta1",
     "kind": "KubeDirectorApp",
     "metadata": {
-        "name" : "centos8x-ad-ldap"
+        "name" : "centos7x-ad-ldap"
     },
 
     "spec" : {
-        "logoURL": "https://raw.githubusercontent.com/bluedatainc/solutions/master/MLOps/logos/centos8x-logo.png",
         "systemdRequired": true,
         "defaultPersistDirs" : ["/home"],
         "config": {
@@ -23,10 +22,10 @@
             ]
         },
         "label": {
-            "name": "CentOS 8.0 with AD/LDAP",
-            "description": "CentOS 8.0 with no preinstalled apps"
+            "name": "CentOS 7.0 with AD/LDAP",
+            "description": "CentOS7.0 with no preinstalled apps"
         },
-        "distroID": "bluedata/centos8x-ad-ldap",
+        "distroID": "bluedata/centos7x-ad-ldap",
         "version": "1.0",
         "configSchemaVersion": 8,
         "services": [
