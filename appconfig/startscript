@@ -1,0 +1,9 @@
+set -x
+set -e
+
+if [[ "$1" == "--configure" ]]; then
+  echo "Running startscript with --configure option"
+else
+  echo "ERROR: Unknown command line option(s): '$@'"
+  exit 10
+fi
