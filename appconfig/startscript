@@ -1,5 +1,6 @@
 set -x
 set -e
+set -o pipefail
 
 if [[ "$1" == "--configure" ]]; then
   echo "Running startscript with --configure option"
@@ -7,3 +8,10 @@ else
   echo "ERROR: Unknown command line option(s): '$@'"
   exit 10
 fi
+
+
+SELF=$(readlink -nf $0)
+export CONFIG_BASE_DIR=$(dirname ${SELF})
+export SITE_PACKAGES=$(python3 -c "import site; print(site.getsitepackages()[0])") # get the site-packages directory. 
+
+python ${CONFIG_BASE_DIR}/auth.py
