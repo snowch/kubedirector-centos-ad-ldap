@@ -1,24 +1,5 @@
 # kubedirector-centos-ad-ldap
 
-NOTE: this application is currently [hard-coded](https://github.com/snowch/kubedirector-centos-ad-ldap/blob/main/appconfig/startscript#L19-L20) to the controller IP address for my environment.  This will be rectified within a few days.
-
-
-Setup notes:
-
-- SSH to controller then
-
-```
-sudo cat > /var/www/html/thirdparty/auth.py 
-[[paste auth.py]]
-^C
-```
-
-```
-sudo cat > /var/www/html/thirdparty/auth.props
-[[paste auth.props]]
-^C
-```
-
 ```
 kubectl -n non-mlops apply -f https://raw.githubusercontent.com/snowch/kubedirector-centos-ad-ldap/main/cr-app-centos.json
 ```
