@@ -1,0 +1,121 @@
+# Properties in this file can be used to add to or override the property
+# values that are directly taken from (or derived from) the EPIC auth server
+# settings.
+
+
+[general]
+
+## sssd settings for <propname>
+
+# Debug logging level for the domain. This value means "errors only".
+# See http://linux.die.net/man/5/sssd.conf
+debug_level: 0x00F0
+
+# LDAP server and port to contact. By default this is retrieved from the EPIC
+# configuration.
+#ldap_uri: ldap://my_ldap_server.com:389
+
+# Base DN for user searches. By default this is retrieved from the EPIC
+# configuration. Note that a single search base is used for both users and
+# groups, unless ldap_group_search_base is set.
+#ldap_search_base: dc=bluedata,dc=net
+
+# Base DN for group searches. By default this is NOT set, and the DN specified
+# by ldap_search_base is used for both users and groups.
+#ldap_group_search_base: ou=Groups,dc=bluedata,dc=net
+
+# Authentication DN and password if a non-anonymous search bind is required.
+# By default this is retrieved from the EPIC configuration.
+#default_bind_dn: cn=bind_user,ou=People,dc=bluedata,dc=net
+#default_authtok: bind_password
+
+# Whether to validate the LDAP server's certificate. By default this is set to
+# "hard" if the EPIC configuration requires server verification, "never" if not.
+#tls_reqcert: never
+
+# Schema that affects group membership expression and other fields.
+# By default this is set to "ad" if the EPIC auth server is an AD server,
+# and "rfc2307" otherwise. Other possible values are "rfc2307bis" and "IPA".
+#ldap_schema: rfc2307
+
+# Whether to generate user/group IDs from Active Directory security IDs.
+# By default this is set to "true" only if the auth server is an AD server.
+#ldap_id_mapping: false
+
+# These attributes only matter if ldap_id_mapping is "true". They set up the
+# ability to handle up to 100 AD domains with user IDs as large as 20000000.
+ldap_idmap_range_min = 200000
+ldap_idmap_range_max = 2000200000
+ldap_idmap_range_size = 200000
+
+# Suppress LDAP referral chasing, for performance and protocol-compatiblity
+# reasons. Set this to "true" if your user/group lookups need to follow search
+# references to other LDAP/AD servers in order to succeed. Note that all
+# servers must support the same protocol used to contact the original
+# server (StartTLS or LDAPS).
+ldap_referrals = false
+
+# Fallback values used if the user objects don't specify certain things (see
+# below in the user section). In fallback_homedir, %u is replaced with the
+# username.
+#fallback_homedir: /home/%u
+default_shell: /bin/bash
+
+#default home dir
+
+override_homedir: /home/%u
+
+[ldap_user]
+
+## sssd/ldap settings for ldap_user_<propname>
+
+# Class that identifies user objects. The default value depends on whether the
+# EPIC auth server is LDAP or AD. If LDAP then object_class=posixAccount; if
+# AD then object_class=user.
+#object_class: posixAccount
+
+# Attribute that identifies group the user is a member of.
+member_of: memberOf
+
+# This attribute identifies the value to match the Posix username. By default
+# this is retrieved from the EPIC configuration.
+#name: uid
+
+# These user ID properties only apply if ldap_id_mapping is "false".
+uid_number: uidNumber
+gid_number: gidNumber
+
+# The values of these two optional attributes help populate the passwd entry.
+# The default values depend on whether the EPIC auth server is LDAP or AD.
+# If LDAP then fullname=cn and gecos=gecos; if AD then fullname=displayName and
+# gecos=description.
+#fullname: cn
+#gecos: gecos
+
+# If this attribute is not present, home directory locations will be expected
+# and created as per the value of fallback_homedir.
+home_directory: homeDirectory
+
+# If this attribute is not present, the default_shell value will be used.
+shell: loginShell
+
+
+[ldap_group]
+
+## sssd/ldap settings for ldap_group_<propname>
+
+# Class that identifies group objects. The default value depends on whether the
+# EPIC auth server is LDAP or AD. If LDAP then object_class=posixGroup; if
+# AD then object_class=group.
+#object_class: posixGroup
+
+# This attribute identifies the value to match the Posix groupname. The default
+# value depends on whether the EPIC auth server is LDAP or AD. If LDAP then
+# name=cn; if AD then name=sAMAccountName.
+#name: cn
+
+# This ID property only applies if ldap_id_mapping is "false".
+gid_number: gidNumber
+
+# The group member field default is determined by the ldap_schema.
+#member: memberuid
