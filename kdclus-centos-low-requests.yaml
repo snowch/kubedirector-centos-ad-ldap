@@ -3,7 +3,6 @@ apiVersion: "kubedirector.hpe.com/v1beta1"
 kind: "KubeDirectorCluster"
 metadata: 
   name: "my-ldap-test"
-  namespace: "kfpdemo"
   labels: 
     description: ""
 spec: 
