@@ -468,6 +468,9 @@ def get_more_auth_params(context_params, sssd_domain, transmitted_domain=None):
             allow_member_login = False
 
     mem_of = get_members_param_from_config('groups')
+    if mem_of is None:
+       mem_of = get_members_param_from_config('tenantGroups')
+
     if mem_of:
         if len(mem_of) > 0:
             members_of = list(mem_of.replace('\n', '').split("::::"))
